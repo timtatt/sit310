@@ -1,0 +1,8 @@
+prefix=/home/tim/catkin_ws/devel
+
+Name: scared_robot
+Description: Description of scared_robot
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/tim/catkin_ws/devel/lib 
+Requires: 

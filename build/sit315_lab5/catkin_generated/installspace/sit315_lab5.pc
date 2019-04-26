@@ -1,0 +1,8 @@
+prefix=/home/tim/catkin_ws/install
+
+Name: sit315_lab5
+Description: Description of sit315_lab5
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/tim/catkin_ws/install/lib 
+Requires: 

@@ -1,0 +1,8 @@
+prefix=/home/tim/catkin_ws/devel
+
+Name: sit310_lab6
+Description: Description of sit310_lab6
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/tim/catkin_ws/devel/lib 
+Requires: 

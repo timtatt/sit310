@@ -1,0 +1,2 @@
+scared_robot:sit310_lab1:sit310_lab2:sit310_lab5:sit310_lab6
+-DCATKIN_DEVEL_PREFIX=/home/tim/catkin_ws/devel -DCMAKE_INSTALL_PREFIX=/home/tim/catkin_ws/install -G Unix Makefiles
