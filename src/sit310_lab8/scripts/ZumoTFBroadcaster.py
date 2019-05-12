@@ -6,6 +6,7 @@ import tf2_ros as tfRos;
 import geometry_msgs.msg as geoMsgs;
 from geometry_msgs.msg import Twist, Pose, Point, Quaternion, Vector3;
 from nav_msgs.msg import Odometry;
+from std_msgs.msg import Int16;
 import math;
 
 x = 0;
@@ -13,6 +14,10 @@ y = 0;
 th = 0.0;
 
 odomPub = ros.Publisher('odom', Odometry, queue_size=50);
+
+def handleZumoHeading(headingMsg):
+	global th;
+	th = headingMsg.data * math.pi / 180;
 
 def handleZumoPos(velMsg):
 	global x;
@@ -25,11 +30,7 @@ def handleZumoPos(velMsg):
 
 	vx = 0;
 
-	if (velMsg.linear.y == 1.0):
-		th += math.pi / 36;
-	elif (velMsg.linear.y == -1.0):
-		th -= math.pi / 36;
-	elif (velMsg.linear.x == 1.0):
+	if (velMsg.linear.x == 1.0):
 		vx = 0.1;
 	elif (velMsg.linear.x == -1.0):
 		vx = -0.1;
@@ -83,6 +84,7 @@ def loop():
 if __name__ == '__main__':
 	ros.init_node('ZumoTFBroadcaster');
 	ros.Subscriber('/zumo/cmd_vel', Twist, handleZumoPos);
+	ros.Subscriber('/zumo/heading', Int16, handleZumoHeading);
 
 	while not ros.core.is_shutdown():
 		loop();

@@ -12,8 +12,8 @@ def MoveBaseClient():
 	goal = MoveBaseGoal();
 	goal.target_pose.header.frame_id = "odom";
 	goal.target_pose.header.stamp = ros.Time.now();
-	goal.target_pose.pose.position.x = 2;
-	goal.target_pose.pose.position.y = 2;
+	goal.target_pose.pose.position.x = 0;
+	goal.target_pose.pose.position.y = 0;
 	goal.target_pose.pose.orientation.w = 1.0;
 
 	client.send_goal(goal);
