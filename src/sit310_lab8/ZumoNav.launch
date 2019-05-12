@@ -1,0 +1,8 @@
+<launch>
+	<node name="map_server" pkg="map_server" type="map_server" args="$(find sit310_lab8)/mymap.yaml" />
+	<node pkg="rosserial_python" type="serial_node.py" name="rosserial" output="screen">
+		<param name="port" value="/dev/ttyACM0" />
+	</node>
+	<node pkg="sit310_lab8" type="ZumoTFBroadcaster.py" name="zumo_pose" output="screen"></node>
+	<node pkg="sit310_lab8" type="ZumoTFSensor.py" name="zumo_sensor" output="screen"></node>
+</launch>

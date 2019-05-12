@@ -26,18 +26,8 @@ def handleZumoSensor(wallMsg):
 	global currentTopic;
 	
 	if (wallMsg.data > 6):
-		newTopic = 2;
 		stop();
-	else:
-		newTopic = 1;
-	
-	if (currentTopic == 1 and newTopic == 2):
-		os.system("rosrun topic_tools mux_select mux_cmdvel /zumo/2/cmd_vel");
-		currentTopic = 2;
-	
-	if (currentTopic == 2 and newTopic == 1):
-		os.system("rosrun topic_tools mux_select mux_cmdvel /zumo/1/cmd_vel");
-		currentTopic = 1;
+
 		
 ros.Subscriber('/zumo/prox_front_left', Int8, handleZumoSensor);
 ros.Subscriber('/zumo/prox_front_right', Int8, handleZumoSensor);
